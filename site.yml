@@ -1,0 +1,38 @@
+---
+- hosts: webserver
+  vars:
+    
+  tasks:
+   
+  handlers:
+   
+- hosts: webserver
+  vars:
+    packagename: "nginx"
+  tasks:
+  - name: install webserver
+    apt:
+      name: "{{ packagename }}"
+      state: latest
+  - name: configure file
+    copy:
+      src: server.xml
+      dest: /etc/nginx/server.xml
+    notify: restart service  
+  - name: start service
+    service:
+      name: "{{ packagename }}"
+      state: started
+  handlers:
+  - name: restart service
+    service:
+      name: nginx
+      state: restarted
+
+-------------
+inventory
+
+dbserver
+
+
+[webserver]
