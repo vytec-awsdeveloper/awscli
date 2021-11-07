@@ -21,3 +21,13 @@ aws ec2 terminate-instances --instance-ids i-01440066075074449
 
 
 aws ec2 delete-security-group --group-name MySecurityGroup
+
+
+
+add(a, b):
+   return a+b
+
+add(10,20)
+
+
+add(30,40)
